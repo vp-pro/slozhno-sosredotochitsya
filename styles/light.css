@@ -1,53 +1,39 @@
-/*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
 .page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
-  --title-color: #ffc2e6;
-  --subtitle-color: #353430;
   --background-color: #fff1f7;
-  --accent-color: #ff8dcb;
-  --accent-color-title: #ff0070;
-  --common-color: #353430;
-  --basic-tc: #353430;
-  --basic-bc: #ff8dcb;
-  --basic-ff: "IBM Plex Mono", "monospace";
-  --basic-fz: 18px;
-  --cover-image: url(../images/cover-image-light.png);
-  --button-menu: #ff0070;
-  --border-w-auto: 0px;
-  --border-w-neon: 0px;
-  --border-w-day: 1px;
-  --fz-title: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  --fz-standard: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  --rec-display: none;
+  --color: #353430;
+  --decorative-color: #353430;
+  --color-theme-menu-button: #353430;
+  --text-on-a-colored-background: #353430;
+  --outline-color-hover: rgba(50, 49, 45, 0.4);
+  --accent-color: #FF8DCB;
+  --background-image: url(../images/cover-image-light.png);
+  --color-title: #FFC2E6;
+  --color-title-shadow: #FF8DCB;
+  --color-title-section: #353430;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-      --title-color: #ffc2e6;
-      --subtitle-color: #353430;
-      --background-color: #fff1f7;
-      --accent-color: #ff8dcb;
-      --accent-color-title: #ff0070;
-      --common-color: #353430;
-      --basic-tc: #353430;
-      --basic-bc: #ff8dcb;
-      --basic-ff: "IBM Plex Mono", "monospace";
-      --basic-fz: 18px;
-      --cover-image: url(../images/cover-image-light.png);
-      --button-menu: #ff0070;
-      --border-w-auto: 1px;
-      --border-w-neon: 0px;
-      --border-w-day: 0px;
-      --fz-title: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-      --fz-standard: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-      --rec-display: none;
+    --background-color: #fff1f7;
+    --color: #353430;
+    --decorative-color: #353430;
+    --color-theme-menu-button: #353430;
+    --text-on-a-colored-background: #353430;
+    --outline-color-hover: rgba(50, 49, 45, 0.4);
+    --accent-color: #FF8DCB;
+    --background-image: url(../images/cover-image-light.png);
+    --color-title: #FFC2E6;
+    --color-title-shadow: #FF8DCB;
+    --color-title-section: #353430;
   }
+}
+
+@media (prefers-color-scheme: light) {
+  .decorative-element {
+    display: none;
+  }
+}
+
+.theme_light .decorative-element {
+  display: none;
 }

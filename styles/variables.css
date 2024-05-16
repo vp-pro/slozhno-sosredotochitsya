@@ -1,24 +1,13 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
-
 :root {
-  --title-color: #db00ff;
-  --subtitle-color: #000028;
   --background-color: #000028;
-  --accent-color: #ff0070;
-  --common-color: #ff0070;
-  --basic-tc: #f1b2ce;
-  --basic-bc: #ff0070;
-  --button-menu: #32312d;
-  --basic-ff: "IBM Plex Mono", "monospace";
-  --basic-fz: 18px;
-  --cover-image: url(../images/cover-image-dark.png);
-  --border-w-auto: 1px;
-  --border-w-neon: 0px;
-  --border-w-day: 0px;
-  --fz-title: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  --fz-standard: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  --rec-display: block;
+  --color: #F1B2CE;
+  --decorative-color: #FF0070;
+  --color-theme-menu-button: #FF0070;
+  --text-on-a-colored-background: #000028;
+  --outline-color-hover:  rgba(255, 0, 112, 0.4);
+  --accent-color: #FF0070;
+  --background-image: url(../images/cover-image-dark.png);
+  --color-title: #DB00FF;
+  --color-title-shadow: #FF0070;
+  --color-title-section: #FF0070;
 }
