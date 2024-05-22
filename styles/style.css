@@ -1,5 +1,464 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
+* { outline: 1px solid purple; }
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  inline-size: 375px;
+  font-family: 'IBM Plex mono', monospace, sans-serif;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--background-color);
+}
+
+.header {
+  min-block-size: 668px;
+  block-size: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  padding: 10px;
+}
+
+.decorative-element {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 38px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: center;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.decorative-element::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-color);
+  display: block;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+  top: 8px;
+  right: -19px;
+}
+
+
+.header::after, .header::before,
+.footer::before, .footer::after  {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+.header::before, .footer::before
+ {
+  border-top: 1px solid var(--decorative-color);
+  border-right: 1px solid var(--decorative-color);
+  top: 10px;
+  right: 10px;
+}
+
+.header::after, .footer::after {
+  border-bottom: 1px solid var(--decorative-color);
+  border-left: 1px solid var(--decorative-color);
+  bottom: 10px;
+  left: 10px;
+}
+
+.header__theme-menu {
+  grid-row-start: 1;
+  align-self: center;
+  justify-self: self-end;
+}
+
+.header__theme-menu-list {
+  list-style: none;
+  display: grid;
+  gap: 15px;
+}
+
+.header__theme-menu-button {
+  text-transform: lowercase;
+  background-color: transparent;
+  color: var(--color-theme-menu-button);
+  font-size: 18px;
+  line-height: 18px;
+  border: none;
+  padding: 4px 13px;
+  border-block-end: 1px solid transparent;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--outline-color-hover);
+  cursor: pointer;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--color-theme-menu-button);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--color-theme-menu-button);
+  border: none;
+  text-decoration: none;
+  padding: 4px 13px;
+}
+
+.header__theme-menu-button_active:disabled {
+  pointer-events: none;
+}
+
+.title {
+  grid-row-start: 2;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 95.7px;
+  text-align: left;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  text-shadow: 4px 4px 0  var(--color-title-shadow);
+  color: var(--color-title);
+  margin: 0 auto;
+}
+
+.title-decor {
+  grid-row-start: 3;
+  align-self: center;
+  justify-content: end;
+}
+
+.text-heading {
+  color: var(--text-on-a-colored-background);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.4px;
+  text-align: left;
+  background-color: var(--accent-color);
+}
+
+.text-heading-normal {
+  font-weight: 400;
+}
+
+.text-heading-min-margin {
+  margin-bottom: 10px;
+}
+
+.text-heading-max-margin {
+  /* margin-bottom: 20px; */
+}
+
+.content {
+  padding: 40px 10px;
+  display: grid;
+  gap: 30px;
+}
+
+.content-section, .content-section-column, .content-section-causes, .content-section-causes-column {
+  display: grid;
+  gap: 20px;
+}
+
+.title-section {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.4px;
+  text-align: left;
+  color: var(--color-title-section);
+}
+
+.text-content {
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23.4px;
+  text-align: left;
+  color: var(--color);
+}
+
+.text-content-link {
+  color: var(--color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 1px solid var(--color);
+}
+
+a:focus {
+  border: none;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 1px solid var(--color);
+}
+
+.gallery-list {
+  margin: 10px 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat (3, 1fr);
+  grid-auto-flow: dense;
+  gap: 10px;
+}
+
+.gallery-image {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  position: relative;
+  min-block-size: 667px;
+  block-size: 100vh;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+}
+
+.footer-text {
+  display: block;
+  grid-row: 2;
+  font-family: inherit;
+  font-size: 116px;
+  font-weight: 700;
+  line-height: 95.7px;
+  text-align: center;
+  color: var(--color-title);
+  text-shadow: 2px 2px 0 var(--color-title-shadow);
+}
+
+
+@media(768px<=width<1024px) {
+  .page {
+    inline-size: 768px;
+  }
+
+  .header {
+    min-block-size: 1024px;
+    padding: 20px 20px 20px 0;
+  }
+
+  .decorative-element {
+    inset-block-start: 20px;
+    inset-inline-end: 48px;
+  }
+
+  .title {
+    margin: 0;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .title-decor {
+    margin-left: 384px;
+    align-self: center;
+    justify-content: end;
+  }
+
+  .header::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .header::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .content {
+    padding: 60px 20px;
+    gap: 60px;
+  }
+
+
+  .content-section {
+    grid-template-columns: 236px 1fr;
+  }
+
+
+
+
+  .title-section-padding {
+    padding-right: 492px;
+  }
+
+  .gallery-list {
+    padding-block-start: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-list-item {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .sunset {
+    grid-column: span 2;
+  }
+
+  .ice-cream {
+    grid-row: span 2;
+  }
+
+  .tape {
+    grid-row: 2 span;
+  }
+
+  .street {
+    grid-column: 2 span;
+  }
+
+  .footer {
+    min-block-size: 1024px;
+  }
+
+  .footer-text {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);;
+  }
+
+  .footer::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .footer::after {
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+@media (width>=1024px) {
+  .page {
+    inline-size: 1024px;
+  }
+
+  .header {
+    min-block-size: 768px;
+    padding: 20px 20px 20px 0;
+  }
+
+  .decorative-element {
+    inset-block-start: 20px;
+    inset-inline-end: 48px;
+  }
+
+  .title {
+    margin: 0;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .title-decor {
+    margin-left: 513px;
+    align-self: center;
+    justify-content: end;
+    margin-block-start: 15px;
+  }
+
+  .header::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .header::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .header__theme-menu {
+    align-self: self-start;
+    justify-self: center;
+  }
+
+  .header__theme-menu-list {
+    padding-inline-start: 20px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .content {
+    padding: 60px 20px;
+    gap: 80px;
+  }
+
+  .content-section {
+    grid-template-columns: 315px 1fr;
+  }
+
+  .content-section-causes-column {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .title-section-padding {
+    padding-right: 669px;
+  }
+
+  .gallery-list {
+    padding-block-start: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gallery-list-item {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .sunset {
+    grid-column: span 2;
+  }
+
+  .ice-cream {
+    grid-row: span 2;
+  }
+
+  .tape {
+    grid-row: 2 span;
+  }
+
+  .street {
+    grid-column: 2 span;
+  }
+
+  .footer {
+    min-block-size: 768px;
+  }
+
+  .footer-text {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);;
+  }
+
+  .footer::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .footer::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .theme_light .title {
+    text-shadow: 4px 4px 0 #FF0070;
+  }
+
+  .theme_light .footer-text {
+    text-shadow: 2px 2px 0 #FF0070;
+  }
 }
